@@ -1,0 +1,32 @@
+type City {
+    id: ID
+    version: Int
+    name: String
+}
+
+type User {
+    id: ID
+    version: Int
+    city: City
+    username: String
+    isMarried: Boolean
+}
+
+type Query {
+    getUserById(id: ID!): User
+    getUsers: [User]
+}
+
+type Subscription {
+    data: String
+}
+
+type Mutation {
+    addUser(nameCity: String, username: String, isMarried: Boolean): User
+}
+
+schema {
+     query: Query
+     mutation: Mutation
+     subscription: Subscription
+}
